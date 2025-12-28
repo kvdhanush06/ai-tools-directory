@@ -1,7 +1,17 @@
 ---
 const { slot, format = "auto", style = "" } = Astro.props;
 const client = import.meta.env.PUBLIC_ADSENSE_CLIENT || "";
-const slotId = import.meta.env[`PUBLIC_ADSENSE_SLOT_${slot}`] || "";
+
+// Map slot names to their corresponding environment variables
+const slotEnvMap: Record<string, string> = {
+  HEADER: import.meta.env.PUBLIC_ADSENSE_SLOT_HEADER || "",
+  SIDEBAR: import.meta.env.PUBLIC_ADSENSE_SLOT_SIDEBAR || "",
+  FOOTER: import.meta.env.PUBLIC_ADSENSE_SLOT_FOOTER || "",
+  CONTENT: import.meta.env.PUBLIC_ADSENSE_SLOT_CONTENT || "",
+  INLINE: import.meta.env.PUBLIC_ADSENSE_SLOT_INLINE || "",
+};
+
+const slotId = slotEnvMap[slot.toUpperCase()] || "";
 const enabled = Boolean(client && slotId);
 ---
 {enabled ? (
@@ -16,10 +26,13 @@ const enabled = Boolean(client && slotId);
     <small>Ad placeholder ({slot}) — will show after AdSense approval.</small>
   </div>
 )}
-<script>
-  if ({enabled}) {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
-  }
+<script is:inline>
+  (function() {
+    var ads = document.querySelectorAll('.adsbygoogle');
+    if (ads.length > 0) {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    }
+  })();
 </script>
 
 <style>
