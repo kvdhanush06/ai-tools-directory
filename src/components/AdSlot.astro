@@ -1,0 +1,33 @@
+---
+const { slot, format = "auto", style = "" } = Astro.props;
+const client = import.meta.env.PUBLIC_ADSENSE_CLIENT || "";
+const slotId = import.meta.env[`PUBLIC_ADSENSE_SLOT_${slot}`] || "";
+const enabled = Boolean(client && slotId);
+---
+{enabled ? (
+  <ins class="adsbygoogle"
+    style={`display:block;${style}`}
+    data-ad-client={client}
+    data-ad-slot={slotId}
+    data-ad-format={format}
+    data-full-width-responsive="true"></ins>
+) : (
+  <div class="ad-placeholder" aria-label="Ad placeholder">
+    <small>Ad placeholder ({slot}) — will show after AdSense approval.</small>
+  </div>
+)}
+<script>
+  if ({enabled}) {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  }
+</script>
+
+<style>
+  .ad-placeholder{
+    border:1px dashed rgba(255,255,255,.18);
+    padding:12px;
+    border-radius:12px;
+    opacity:.85;
+    margin: 14px 0;
+  }
+</style>

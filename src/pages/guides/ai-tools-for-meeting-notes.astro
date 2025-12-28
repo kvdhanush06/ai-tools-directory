@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AdSlot from '../../components/AdSlot.astro';
+
+const title = "AI tools for meeting notes";
+const description = "Transcription, summaries, and action items.";
+const canonical = "https://aitoolsdirectory.allkvd.me/guides/ai-tools-for-meeting-notes";
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="hero">
+    <div class="kicker"><a href="/guides">Guides</a> → AI tools for meeting notes</div>
+    <h1>AI tools for meeting notes</h1>
+    <p>{description}</p>
+    <div class="badges">
+      <span class="badge">Updated 2025-12</span>
+      <span class="badge">Beginner-friendly</span>
+      <span class="badge">AdSense-safe</span>
+    </div>
+  </section>
+
+  <AdSlot slot="GUIDE_TOP" />
+
+  <section class="grid">
+    <div class="card" style="grid-column: span 8">
+      <h3>How to choose</h3>
+      <ul>
+        <li><strong>Workflow fit</strong>: does it integrate with your tools?</li>
+        <li><strong>Cost</strong>: start freemium; upgrade only after you hit limits</li>
+        <li><strong>Privacy</strong>: avoid pasting credentials, keys, or confidential docs</li>
+      </ul>
+
+      <h3>Recommended starting stack</h3>
+      <p>
+        Pick 1 general assistant + 1 domain tool + 1 automation tool.
+        This keeps learning cost low while giving real productivity gains.
+      </p>
+
+      <h3>Next step</h3>
+      <p>
+        Browse tools by category and shortlist 3. Test each for 20 minutes and keep the one that reduces your time the most.
+      </p>
+    </div>
+    <div class="card" style="grid-column: span 4">
+      <h3>Browse directory</h3>
+      <p><a href="/ai-tools">All tools</a></p>
+      <p><a href="/categories">Categories</a></p>
+      <p><a href="/search?q=free">Search “free”</a></p>
+      <p class="kicker">Internal links improve crawl depth and rankings.</p>
+    </div>
+  </section>
+
+  <AdSlot slot="GUIDE_BOTTOM" />
+
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context":"https://schema.org",
+      "@type":"Article",
+      "headline": title,
+      "description": description,
+      "mainEntityOfPage": canonical,
+      "author": { "@type":"Person", "name":"AI Tools Directory" },
+      "publisher": { "@type":"Organization", "name":"AI Tools Directory" }
+    })}
+  </script>
+</BaseLayout>

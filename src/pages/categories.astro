@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../data/tools.json';
+
+const title = "Categories — AI Tools Directory";
+const description = "Browse AI tools by category: productivity, developer, design, marketing, video, and research.";
+const canonical = "https://aitoolsdirectory.allkvd.me/categories";
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="hero">
+    <h1>Categories</h1>
+    <p>{description}</p>
+  </section>
+
+  <section class="grid">
+    {data.categories.map((c) => (
+      <a class="card" href={`/category/${c.slug}`} key={c.slug}>
+        <h3>{c.name}</h3>
+        <p>{c.desc}</p>
+        <div class="badges">
+          <span class="badge">{data.tools.filter(t=>t.category===c.slug).length} tools</span>
+          <span class="badge">High-intent keywords</span>
+        </div>
+      </a>
+    ))}
+  </section>
+</BaseLayout>

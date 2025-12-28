@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aitoolsdirectory.allkvd.me/sitemap.xml

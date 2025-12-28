@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import data from '../../data/tools.json';
+
+export function getStaticPaths(){
+  return data.categories.map(c => ({ params: { slug: c.slug } }));
+}
+
+const { slug } = Astro.params;
+const cat = data.categories.find(c=>c.slug===slug);
+if (!cat) throw new Error('Category not found: ' + slug);
+
+const title = `${cat.name} AI Tools — Directory & Recommendations`;
+const description = `Browse ${cat.name.toLowerCase()} AI tools: pricing, summaries, and practical recommendations.`;
+const canonical = `https://aitoolsdirectory.allkvd.me/category/${cat.slug}`;
+const tools = data.tools.filter(t=>t.category===cat.slug);
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="hero">
+    <div class="kicker"><a href="/categories">Categories</a> → {cat.name}</div>
+    <h1>{cat.name}</h1>
+    <p>{cat.desc}</p>
+    <div class="badges">
+      <span class="badge">{tools.length} tools</span>
+      <span class="badge">SEO-friendly category hub</span>
+    </div>
+  </section>
+
+  <AdSlot slot="CAT_TOP" />
+
+  <table class="table">
+    <thead><tr><th>Tool</th><th>Pricing</th><th>Summary</th></tr></thead>
+    <tbody>
+      {tools.map((t)=>(
+        <tr key={t.slug}>
+          <td><a href={`/tool/${t.slug}`}>{t.name}</a></td>
+          <td>{t.pricing}</td>
+          <td>{t.tagline}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <AdSlot slot="CAT_BOTTOM" />
+</BaseLayout>

@@ -1,0 +1,15 @@
+{
+  "name": "ai-tools-directory",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "node scripts/test-links.mjs"
+  },
+  "dependencies": {
+    "astro": "^4.16.0"
+  }
+}

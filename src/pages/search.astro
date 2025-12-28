@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../data/tools.json';
+
+const title = "Search — AI Tools Directory";
+const description = "Search the directory by tool name, category, or pricing.";
+const canonical = "https://aitoolsdirectory.allkvd.me/search";
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="hero">
+    <h1>Search</h1>
+    <p>Type a keyword and hit Enter. Results update instantly.</p>
+    <div class="search">
+      <input id="q" placeholder="Try: code, SEO, video, free..." />
+      <button onclick="runSearch()">Search</button>
+    </div>
+  </section>
+
+  <div id="results"></div>
+
+  <script type="module">
+    const data = {"categories": [{"slug": "productivity", "name": "Productivity", "desc": "Automation, writing, summarization, and daily workflows."}, {"slug": "developer", "name": "Developer", "desc": "Code assistants, debugging, docs, and DevOps helpers."}, {"slug": "design", "name": "Design", "desc": "UI/UX, assets, image generation, and editing utilities."}, {"slug": "marketing", "name": "Marketing", "desc": "SEO, ads, copywriting, and social scheduling tools."}, {"slug": "video", "name": "Video", "desc": "Editing, captions, avatars, and generation workflows."}, {"slug": "research", "name": "Research", "desc": "Search, summarization, citations, and knowledge management."}], "tools": [{"name": "Notion AI", "slug": "notion-ai", "category": "productivity", "pricing": "Freemium", "website": "https://www.notion.so/product/ai", "tagline": "Notes + AI writing inside Notion workspaces.", "updated": "2025-12-01"}, {"name": "Zapier", "slug": "zapier", "category": "productivity", "pricing": "Paid", "website": "https://zapier.com", "tagline": "Connect apps and automate workflows without code.", "updated": "2025-12-01"}, {"name": "ChatGPT", "slug": "chatgpt", "category": "research", "pricing": "Freemium", "website": "https://chat.openai.com", "tagline": "General-purpose AI assistant for writing, coding, and analysis.", "updated": "2025-12-01"}, {"name": "Perplexity", "slug": "perplexity", "category": "research", "pricing": "Freemium", "website": "https://www.perplexity.ai", "tagline": "Answer engine with web sources and research mode.", "updated": "2025-12-01"}, {"name": "GitHub Copilot", "slug": "github-copilot", "category": "developer", "pricing": "Paid", "website": "https://github.com/features/copilot", "tagline": "AI pair programmer inside your IDE.", "updated": "2025-12-01"}, {"name": "Codeium", "slug": "codeium", "category": "developer", "pricing": "Freemium", "website": "https://codeium.com", "tagline": "Code completion and chat assistant for developers.", "updated": "2025-12-01"}, {"name": "Figma", "slug": "figma", "category": "design", "pricing": "Freemium", "website": "https://www.figma.com", "tagline": "Collaborative design with plugins and AI features.", "updated": "2025-12-01"}, {"name": "Canva", "slug": "canva", "category": "design", "pricing": "Freemium", "website": "https://www.canva.com", "tagline": "Design suite with templates and AI-assisted creation.", "updated": "2025-12-01"}, {"name": "Semrush", "slug": "semrush", "category": "marketing", "pricing": "Paid", "website": "https://www.semrush.com", "tagline": "SEO toolkit for keyword research and site audits.", "updated": "2025-12-01"}, {"name": "Ahrefs", "slug": "ahrefs", "category": "marketing", "pricing": "Paid", "website": "https://ahrefs.com", "tagline": "Backlink and SEO research suite.", "updated": "2025-12-01"}, {"name": "Descript", "slug": "descript", "category": "video", "pricing": "Freemium", "website": "https://www.descript.com", "tagline": "Edit audio/video by editing text; transcription and more.", "updated": "2025-12-01"}, {"name": "CapCut", "slug": "capcut", "category": "video", "pricing": "Freemium", "website": "https://www.capcut.com", "tagline": "Video editor with templates and AI-powered features.", "updated": "2025-12-01"}, {"name": "Claude", "slug": "claude", "category": "research", "pricing": "Freemium", "website": "https://claude.ai", "tagline": "AI assistant focused on writing and reasoning.", "updated": "2025-12-01"}, {"name": "Tome", "slug": "tome", "category": "design", "pricing": "Freemium", "website": "https://tome.app", "tagline": "AI-native presentations and storytelling.", "updated": "2025-12-01"}, {"name": "Framer", "slug": "framer", "category": "design", "pricing": "Freemium", "website": "https://www.framer.com", "tagline": "Website builder with fast publishing and AI help.", "updated": "2025-12-01"}, {"name": "Jasper", "slug": "jasper", "category": "marketing", "pricing": "Paid", "website": "https://www.jasper.ai", "tagline": "Marketing copy and brand-aligned writing.", "updated": "2025-12-01"}, {"name": "Copy.ai", "slug": "copy-ai", "category": "marketing", "pricing": "Freemium", "website": "https://www.copy.ai", "tagline": "Copywriting and workflow automation for GTM teams.", "updated": "2025-12-01"}, {"name": "Hugging Face", "slug": "hugging-face", "category": "developer", "pricing": "Freemium", "website": "https://huggingface.co", "tagline": "Models, datasets, and inference APIs.", "updated": "2025-12-01"}, {"name": "Vercel AI SDK", "slug": "vercel-ai-sdk", "category": "developer", "pricing": "Free", "website": "https://sdk.vercel.ai", "tagline": "Tooling for building AI apps with streaming.", "updated": "2025-12-01"}, {"name": "LangChain", "slug": "langchain", "category": "developer", "pricing": "Free", "website": "https://www.langchain.com", "tagline": "Framework to build LLM-powered apps.", "updated": "2025-12-01"}, {"name": "Midjourney", "slug": "midjourney", "category": "design", "pricing": "Paid", "website": "https://www.midjourney.com", "tagline": "Text-to-image generation via Discord.", "updated": "2025-12-01"}, {"name": "Runway", "slug": "runway", "category": "video", "pricing": "Paid", "website": "https://runwayml.com", "tagline": "Video generation and editing suite.", "updated": "2025-12-01"}, {"name": "Grammarly", "slug": "grammarly", "category": "productivity", "pricing": "Freemium", "website": "https://www.grammarly.com", "tagline": "Writing assistant for clarity and correctness.", "updated": "2025-12-01"}, {"name": "Otter.ai", "slug": "otter-ai", "category": "productivity", "pricing": "Freemium", "website": "https://otter.ai", "tagline": "Meeting notes, transcription, and summaries.", "updated": "2025-12-01"}, {"name": "Miro", "slug": "miro", "category": "productivity", "pricing": "Freemium", "website": "https://miro.com", "tagline": "Online whiteboard for brainstorming and planning.", "updated": "2025-12-01"}, {"name": "Sentry", "slug": "sentry", "category": "developer", "pricing": "Freemium", "website": "https://sentry.io", "tagline": "Error monitoring and performance insights.", "updated": "2025-12-01"}, {"name": "Postman", "slug": "postman", "category": "developer", "pricing": "Freemium", "website": "https://www.postman.com", "tagline": "API development and testing platform.", "updated": "2025-12-01"}, {"name": "Loom", "slug": "loom", "category": "productivity", "pricing": "Freemium", "website": "https://www.loom.com", "tagline": "Screen recording for async communication.", "updated": "2025-12-01"}, {"name": "SurferSEO", "slug": "surferseo", "category": "marketing", "pricing": "Paid", "website": "https://surferseo.com", "tagline": "Content optimization for rankings.", "updated": "2025-12-01"}, {"name": "Buffer", "slug": "buffer", "category": "marketing", "pricing": "Freemium", "website": "https://buffer.com", "tagline": "Social scheduling and analytics.", "updated": "2025-12-01"}, {"name": "ElevenLabs", "slug": "elevenlabs", "category": "video", "pricing": "Freemium", "website": "https://elevenlabs.io", "tagline": "AI voice generation and dubbing.", "updated": "2025-12-01"}, {"name": "VEED", "slug": "veed", "category": "video", "pricing": "Freemium", "website": "https://www.veed.io", "tagline": "Online video editor with AI tools.", "updated": "2025-12-01"}]};
+    function esc(s){ return (s||'').replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    function getQ(){
+      const params = new URLSearchParams(window.location.search);
+      return (params.get('q') || '').trim();
+    }
+    window.runSearch = function(){
+      const q = (document.getElementById('q').value || '').trim();
+      const url = new URL(window.location.href);
+      if(q) url.searchParams.set('q', q); else url.searchParams.delete('q');
+      window.history.replaceState({}, '', url);
+      render(q);
+    }
+    function render(q){
+      document.getElementById('q').value = q;
+      const ql = q.toLowerCase();
+      const matches = !ql ? [] : data.tools.filter(t => {
+        const cat = data.categories.find(c=>c.slug===t.category)?.name || '';
+        return [t.name, t.tagline, t.pricing, t.category, cat].some(x => (x||'').toLowerCase().includes(ql));
+      }).slice(0, 50);
+
+      const el = document.getElementById('results');
+      if(!ql){ el.innerHTML = '<p class="kicker">Enter a keyword to search.</p>'; return; }
+      if(!matches.length){ el.innerHTML = '<p class="kicker">No matches found. Try a different keyword.</p>'; return; }
+      el.innerHTML = `
+        <table class="table">
+          <thead><tr><th>Tool</th><th>Category</th><th>Pricing</th><th>Summary</th></tr></thead>
+          <tbody>
+            ${matches.map(t => `
+              <tr>
+                <td><a href="/tool/${esc(t.slug)}">${esc(t.name)}</a></td>
+                <td><a href="/category/${esc(t.category)}">${esc(t.category)}</a></td>
+                <td>${esc(t.pricing)}</td>
+                <td>${esc(t.tagline)}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+    document.getElementById('q').addEventListener('keydown', (e)=>{ if(e.key==='Enter') window.runSearch(); });
+    render(getQ());
+  </script>
+</BaseLayout>

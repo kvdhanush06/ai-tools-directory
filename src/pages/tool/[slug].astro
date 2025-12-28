@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import data from '../../data/tools.json';
+
+export function getStaticPaths(){
+  return data.tools.map(t => ({ params: { slug: t.slug } }));
+}
+
+const { slug } = Astro.params;
+const tool = data.tools.find(t => t.slug === slug);
+if (!tool) throw new Error('Tool not found: ' + slug);
+
+const cat = data.categories.find(c=>c.slug===tool.category);
+const title = `${tool.name} — AI Tool Review & Use Cases`;
+const description = `${tool.name}: ${tool.tagline} Category: ${cat?.name || tool.category}. Pricing: ${tool.pricing}.`;
+const canonical = `https://aitoolsdirectory.allkvd.me/tool/${tool.slug}`;
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="hero">
+    <div class="kicker"><a href="/ai-tools">Tools</a> → <a href={`/category/${tool.category}`}>{cat?.name || tool.category}</a></div>
+    <h1>{tool.name}</h1>
+    <p>{tool.tagline}</p>
+    <div class="badges">
+      <span class="badge">{cat?.name || tool.category}</span>
+      <span class="badge">{tool.pricing}</span>
+      <span class="badge">Updated {tool.updated}</span>
+    </div>
+  </section>
+
+  <AdSlot slot="TOOL_TOP" />
+
+  <section class="grid" style="margin-top: 6px">
+    <div class="card" style="grid-column: span 8">
+      <h3>What {tool.name} is good for</h3>
+      <p>
+        Practical fit depends on your workflow. Use this tool when you want to reduce repetitive work,
+        speed up creation, and keep output consistent.
+      </p>
+      <ul>
+        <li><strong>Best use cases</strong>: teams, solo creators, students</li>
+        <li><strong>Workflow</strong>: input → refine → export → automate</li>
+        <li><strong>Security</strong>: avoid pasting secrets; use project-level access controls</li>
+      </ul>
+    </div>
+    <div class="card" style="grid-column: span 4">
+      <h3>Official site</h3>
+      <p><a href={tool.website} rel="nofollow noopener" target="_blank">{tool.website}</a></p>
+      <p class="kicker">Tip: open in a new tab, compare pricing tiers.</p>
+    </div>
+  </section>
+
+  <AdSlot slot="TOOL_INCONTENT" />
+
+  <section style="margin-top: 18px">
+    <h2 style="margin:0 0 8px">Alternatives in {cat?.name || tool.category}</h2>
+    <div class="grid">
+      {data.tools.filter(t=>t.category===tool.category && t.slug!==tool.slug).slice(0,4).map((t)=>(
+        <a class="card" href={`/tool/${t.slug}`} key={t.slug}>
+          <h3>{t.name}</h3>
+          <p>{t.tagline}</p>
+          <div class="badges"><span class="badge">{t.pricing}</span></div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context":"https://schema.org",
+      "@type":"SoftwareApplication",
+      "name": tool.name,
+      "applicationCategory": cat?.name || tool.category,
+      "operatingSystem": "Web",
+      "offers": { "@type":"Offer", "price":"0", "priceCurrency":"USD", "availability":"https://schema.org/InStock" },
+      "url": canonical
+    })}
+  </script>
+</BaseLayout>

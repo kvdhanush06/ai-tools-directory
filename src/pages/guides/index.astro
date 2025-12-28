@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Guides — AI Tools Directory";
+const description = "Practical guides that target long-tail SEO keywords and convert well for ads.";
+const canonical = "https://aitoolsdirectory.allkvd.me/guides";
+const guides = [
+  { slug: "best-ai-tools-for-students", title: "Best AI tools for students" },
+  { slug: "best-ai-tools-for-developers", title: "Best AI tools for developers" },
+  { slug: "ai-tools-for-seo", title: "AI tools for SEO" },
+  { slug: "free-ai-tools-worth-using", title: "Free AI tools worth using" },
+];
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="hero">
+    <h1>Guides</h1>
+    <p>{description}</p>
+  </section>
+
+  <section class="grid">
+    {guides.map((g)=>(
+      <a class="card" href={`/guides/${g.slug}`} key={g.slug}>
+        <h3>{g.title}</h3>
+        <p>High-intent topic designed for rankings and ad revenue.</p>
+        <div class="badges"><span class="badge">Long-tail SEO</span><span class="badge">Evergreen</span></div>
+      </a>
+    ))}
+  </section>
+
+  <p class="kicker">Add 2–3 guides/week to scale traffic predictably.</p>
+</BaseLayout>

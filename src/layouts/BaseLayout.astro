@@ -1,0 +1,54 @@
+---
+import SeoHead from '../components/SeoHead.astro';
+const { title, description, canonical, noindex = false } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <SeoHead title={title} description={description} canonical={canonical} noindex={noindex} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context":"https://schema.org",
+        "@type":"WebSite",
+        "name":"AI Tools Directory",
+        "url":"https://aitoolsdirectory.allkvd.me",
+        "potentialAction":{
+          "@type":"SearchAction",
+          "target":"https://aitoolsdirectory.allkvd.me/search?q={search_term_string}",
+          "query-input":"required name=search_term_string"
+        }
+      })}
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <a class="brand" href="/">AI Tools Directory</a>
+      <nav class="nav">
+        <a href="/ai-tools">Tools</a>
+        <a href="/categories">Categories</a>
+        <a href="/guides">Guides</a>
+        <a href="/about">About</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>AI Tools Directory</strong><br/>
+          <small>Curated tools, practical guides, and comparison pages.</small>
+        </div>
+        <div class="footer-links">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

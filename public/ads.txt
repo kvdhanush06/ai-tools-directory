@@ -1,0 +1,2 @@
+# Replace ca-pub-XXXXXXXXXXXXXXXX after AdSense approval.
+google.com, ca-pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

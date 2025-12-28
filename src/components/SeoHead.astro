@@ -1,0 +1,28 @@
+---
+const {
+  title,
+  description,
+  canonical,
+  ogImage = '/og.png',
+  noindex = false
+} = Astro.props;
+
+const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT || '';
+const shouldLoadAds = Boolean(adsenseClient);
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta name="twitter:card" content="summary_large_image" />
+{noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
+
+{shouldLoadAds ? (
+  <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossorigin="anonymous"></script>
+) : null}

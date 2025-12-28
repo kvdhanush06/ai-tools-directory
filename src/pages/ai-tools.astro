@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AdSlot from '../components/AdSlot.astro';
+import data from '../data/tools.json';
+
+const title = "All AI Tools — AI Tools Directory";
+const description = "A curated list of AI tools with categories, pricing, and summaries.";
+const canonical = "https://aitoolsdirectory.allkvd.me/ai-tools";
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="hero">
+    <h1>All tools</h1>
+    <p>{description}</p>
+  </section>
+
+  <AdSlot slot="TOOLS_TOP" />
+
+  <table class="table">
+    <thead><tr><th>Tool</th><th>Category</th><th>Pricing</th><th>Summary</th></tr></thead>
+    <tbody>
+      {data.tools.map((t) => (
+        <tr key={t.slug}>
+          <td><a href={`/tool/${t.slug}`}>{t.name}</a></td>
+          <td><a href={`/category/${t.category}`}>{data.categories.find(c=>c.slug===t.category)?.name}</a></td>
+          <td>{t.pricing}</td>
+          <td>{t.tagline}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <AdSlot slot="TOOLS_BOTTOM" />
+</BaseLayout>
