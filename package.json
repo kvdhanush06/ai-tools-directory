@@ -10,7 +10,7 @@
     "test": "node scripts/test-links.mjs"
   },
   "dependencies": {
-    "astro": "^4.16.0"
+    "astro": "^5.16.6"
   },
   "engines": {
     "node": "18.x"
