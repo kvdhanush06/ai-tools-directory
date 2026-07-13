@@ -69,6 +69,15 @@
       "updated": "2025-12-01"
     },
     {
+      "name": "Remio",
+      "slug": "remio",
+      "category": "research",
+      "pricing": "Freemium",
+      "website": "https://remio.ai",
+      "tagline": "Local-first AI memory and knowledge base for personal context retrieval.",
+      "updated": "2026-06-25"
+    },
+    {
       "name": "GitHub Copilot",
       "slug": "github-copilot",
       "category": "developer",
