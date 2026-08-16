@@ -276,6 +276,15 @@
       "updated": "2025-12-01"
     },
     {
+      "name": "Agent QA",
+      "slug": "agent-qa",
+      "category": "developer",
+      "pricing": "Free package; provider costs may apply",
+      "website": "https://github.com/vostride/agent-qa",
+      "tagline": "Natural-language web and mobile tests with persistent memory and MCP.",
+      "updated": "2026-08-16"
+    },
+    {
       "name": "Loom",
       "slug": "loom",
       "category": "productivity",
