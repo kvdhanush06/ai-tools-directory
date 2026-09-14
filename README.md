@@ -84,7 +84,7 @@ AI Tools Directory is built as a static web application optimized for performanc
 
 ## Project Structure
 
-```text id="1lb9vt"
+```text
 ai-tools-directory/
 ├── src/
 ├── public/
@@ -98,31 +98,31 @@ ai-tools-directory/
 
 ### Install Dependencies
 
-```bash id="5duik5"
+```bash
 npm install
 ```
 
 ### Start Development Server
 
-```bash id="5r8wh7"
+```bash
 npm run dev
 ```
 
 ### Build Production Assets
 
-```bash id="3dxk0u"
+```bash
 npm run build
 ```
 
 ### Preview Production Build
 
-```bash id="aw7g8n"
+```bash
 npm run preview
 ```
 
 ### Run Tests
 
-```bash id="j7bup9"
+```bash
 npm run test
 ```
 
@@ -132,19 +132,19 @@ npm run test
 
 Build Command:
 
-```text id="0eqlpk"
+```text
 npm run build
 ```
 
 Publish Directory:
 
-```text id="eqw0b3"
+```text
 dist
 ```
 
 Node Version:
 
-```text id="yk0k6q"
+```text
 20
 ```
 
@@ -152,14 +152,14 @@ Node Version:
 
 Set the following Netlify environment variables:
 
-```text id="bux7jv"
+```text
 PUBLIC_ADSENSE_CLIENT
 PUBLIC_ADSENSE_SLOT_HOME_TOP
 ```
 
 Update:
 
-```text id="lmgtqs"
+```text
 public/ads.txt
 ```
 
@@ -172,3 +172,9 @@ with your AdSense publisher ID.
 * Optimized for SEO and static-site performance.
 * Implemented responsive layouts for desktop and mobile users.
 * Integrated Google AdSense monetization support.
+
+---
+
+## Built by
+
+**Venkata Dhanush Kakarlamudi** — [Portfolio](https://portfolio.allkvd.dev/)
