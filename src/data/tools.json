@@ -319,6 +319,15 @@
       "website": "https://www.veed.io",
       "tagline": "Online video editor with AI tools.",
       "updated": "2025-12-01"
+    },
+    {
+      "name": "AI Tools Radar",
+      "slug": "ai-tools-radar",
+      "category": "research",
+      "pricing": "Free",
+      "website": "https://aitoolsradar.com/",
+      "tagline": "AI tools directory and daily AI industry news platform.",
+      "updated": "2026-09-16"
     }
   ]
 }
