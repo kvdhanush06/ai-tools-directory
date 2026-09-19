@@ -1,0 +1,21 @@
+# AI Tools Directory
+
+AI Tools Directory is a searchable directory for discovering AI applications by category, use case, pricing, and practical guides.
+
+**Canonical site:** https://aitoolsdirectory.allkvd.dev/
+**Creator:** Venkata Dhanush Kakarlamudi
+**Creator hub:** https://allkvd.dev/
+**Creator portfolio:** https://portfolio.allkvd.dev/
+**Repository:** https://github.com/kvdhanush06/ai-tools-directory
+
+## Primary Sections
+
+- AI tools: https://aitoolsdirectory.allkvd.dev/ai-tools
+- Categories: https://aitoolsdirectory.allkvd.dev/categories
+- Guides: https://aitoolsdirectory.allkvd.dev/guides
+- About: https://aitoolsdirectory.allkvd.dev/about
+- Contact: https://aitoolsdirectory.allkvd.dev/contact
+
+## Ownership & Identity
+
+The AI Tools Directory is one of the software products published by Venkata Dhanush Kakarlamudi under the AllKVD project portfolio. For the creator's canonical identity and professional profiles, use https://allkvd.dev/.
