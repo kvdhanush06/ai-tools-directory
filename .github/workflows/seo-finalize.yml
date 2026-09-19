@@ -1,0 +1,42 @@
+name: SEO finalize
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: "!contains(github.event.head_commit.message, 'SEO finalize')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Normalize canonical domain references
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=$(git grep -Il 'aitoolsdirectory\.allkvd\.me' || true)
+          if [ -n "$files" ]; then
+            printf '%s\n' "$files" | while IFS= read -r file; do
+              sed -i 's#aitoolsdirectory\.allkvd\.me#aitoolsdirectory.allkvd.dev#g' "$file"
+            done
+          fi
+          grep -RIl 'aitoolsdirectory\.allkvd\.me' --exclude-dir=.git . && exit 1 || true
+          grep -RIl 'aitoolsdirectory\.allkvd\.dev' src public astro.config.mjs README.md | head -1 >/dev/null
+
+      - name: Commit and remove temporary workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm .github/workflows/seo-finalize.yml
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo "No changes required"
+          else
+            git commit -m "SEO finalize: canonical domain normalization"
+            git push
+          fi
