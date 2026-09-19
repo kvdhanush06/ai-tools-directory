@@ -1,22 +1,34 @@
 ---
 import SeoHead from '../components/SeoHead.astro';
 const { title, description, canonical, noindex = false } = Astro.props;
+const siteUrl = 'https://aitoolsdirectory.allkvd.dev';
+const normalizedCanonical = typeof canonical === 'string'
+  ? canonical.replace('aitoolsdirectory.allkvd.me', 'aitoolsdirectory.allkvd.dev')
+  : canonical;
 ---
 <!doctype html>
 <html lang="en">
   <head>
-    <SeoHead title={title} description={description} canonical={canonical} noindex={noindex} />
+    <SeoHead title={title} description={description} canonical={normalizedCanonical} noindex={noindex} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/styles.css" />
     <script type="application/ld+json">
       {JSON.stringify({
         "@context":"https://schema.org",
         "@type":"WebSite",
+        "@id":`${siteUrl}/#website`,
         "name":"AI Tools Directory",
-        "url":"https://aitoolsdirectory.allkvd.me",
+        "url":siteUrl,
+        "description":"A searchable directory of AI tools, categories, comparisons, and practical guides.",
+        "publisher":{
+          "@type":"Person",
+          "@id":"https://allkvd.dev/#person",
+          "name":"Venkata Dhanush Kakarlamudi",
+          "url":"https://allkvd.dev/"
+        },
         "potentialAction":{
           "@type":"SearchAction",
-          "target":"https://aitoolsdirectory.allkvd.me/search?q={search_term_string}",
+          "target":`${siteUrl}/search?q={search_term_string}`,
           "query-input":"required name=search_term_string"
         }
       })}
@@ -25,7 +37,7 @@ const { title, description, canonical, noindex = false } = Astro.props;
   <body>
     <header class="header">
       <a class="brand" href="/">AI Tools Directory</a>
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary navigation">
         <a href="/ai-tools">Tools</a>
         <a href="/categories">Categories</a>
         <a href="/guides">Guides</a>
@@ -41,12 +53,17 @@ const { title, description, canonical, noindex = false } = Astro.props;
       <div class="container footer-inner">
         <div>
           <strong>AI Tools Directory</strong><br/>
-          <small>Curated tools, practical guides, and comparison pages.</small>
+          <small>Curated AI tools, practical guides, and comparison pages.</small>
+          <div style="margin-top:8px">
+            <small>Created and maintained by <a href="https://allkvd.dev/">Venkata Dhanush Kakarlamudi</a> · <a href="https://allkvd.dev/">AllKVD</a></small>
+          </div>
         </div>
         <div class="footer-links">
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>
           <a href="/contact">Contact</a>
+          <a href="https://github.com/kvdhanush06/ai-tools-directory" rel="noopener noreferrer">GitHub</a>
+          <a href="https://portfolio.allkvd.dev/" rel="noopener noreferrer">Portfolio</a>
         </div>
       </div>
     </footer>
