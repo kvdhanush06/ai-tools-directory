@@ -1,180 +1,88 @@
-# AI Tools Directory
+# AI Tools Directory — AI Tool Discovery, Search & Guides
 
-Curated directory for discovering, searching, and exploring AI tools across multiple categories.
+**AI Tools Directory** is a searchable directory for discovering, exploring, and comparing AI applications across categories and use cases. It combines tool listings, category pages, search, and practical guides into a fast static site.
 
 **Live:** https://aitoolsdirectory.allkvd.dev/
 
-## Problem
+**Repository:** https://github.com/kvdhanush06/ai-tools-directory
 
-The AI ecosystem grows rapidly, making it difficult for users to discover relevant tools, compare solutions, and find products that match their needs.
+## What the site provides
 
-AI Tools Directory provides a centralized platform for exploring AI products through organized categories and search-driven discovery.
+- Searchable AI tool discovery
+- Category-based browsing
+- Tool detail and comparison-oriented pages
+- Practical AI guides targeting real user workflows
+- Pricing and use-case information
+- Responsive, static-site architecture designed for performance and search discoverability
 
-## Features
+## Core Sections
 
-### AI Tool Discovery
-
-* Browse AI tools across multiple categories
-* Explore new products and services
-* Discover tools for different use cases
-
-### Search Experience
-
-* Search across listed tools
-* Quickly locate relevant products
-* Filter through large collections efficiently
-
-### Categorized Directory
-
-Tools are organized into structured categories to improve navigation and discovery.
-
-Examples include:
-
-* Writing
-* Productivity
-* Coding
-* Image Generation
-* Video Generation
-* Research
-* Automation
-* Marketing
-
-### Responsive Experience
-
-* Mobile-friendly design
-* Fast page loading
-* Optimized browsing experience
+- AI tools: https://aitoolsdirectory.allkvd.dev/ai-tools
+- Categories: https://aitoolsdirectory.allkvd.dev/categories
+- Guides: https://aitoolsdirectory.allkvd.dev/guides
+- About: https://aitoolsdirectory.allkvd.dev/about
 
 ## Architecture
 
-AI Tools Directory is built as a static web application optimized for performance, SEO, and discoverability.
+AI Tools Directory is built as a static web application optimized for fast delivery, structured content, SEO, and scalable content discovery.
 
 ### Core Components
 
-* Tool Directory
-* Search Interface
-* Category Navigation
-* SEO Layer
-* Ad Integration
-
-### Design Goals
-
-* Fast loading
-* Search-friendly architecture
-* Easy navigation
-* Scalable content management
-* Mobile responsiveness
+- Tool Directory
+- Search Interface
+- Category Navigation
+- SEO metadata and canonical URLs
+- Schema.org structured data
+- XML sitemap generation
+- `robots.txt`
+- `llms.txt`
+- Ad integration
 
 ## Tech Stack
 
-### Frontend
-
-* Astro
-* JavaScript
-* HTML
-* CSS
-
-### Hosting
-
-* Netlify
-
-### Monetization
-
-* Google AdSense
-
-## Project Structure
-
-```text
-ai-tools-directory/
-├── src/
-├── public/
-├── components/
-├── pages/
-├── tests/
-└── README.md
-```
+- Astro
+- JavaScript
+- HTML
+- CSS
+- Netlify
+- Google AdSense
 
 ## Local Development
 
-### Install Dependencies
-
 ```bash
 npm install
-```
-
-### Start Development Server
-
-```bash
 npm run dev
-```
-
-### Build Production Assets
-
-```bash
 npm run build
-```
-
-### Preview Production Build
-
-```bash
 npm run preview
-```
-
-### Run Tests
-
-```bash
 npm run test
 ```
 
 ## Deployment
 
-### Netlify
+The site is deployed on Netlify.
 
-Build Command:
+Build command:
 
 ```text
 npm run build
 ```
 
-Publish Directory:
+Publish directory:
 
 ```text
 dist
 ```
 
-Node Version:
+## SEO & Discoverability
 
-```text
-20
-```
+The canonical domain is **aitoolsdirectory.allkvd.dev**. The application generates canonical URLs and an XML sitemap using the `.dev` domain, exposes `robots.txt` and `llms.txt`, and includes structured WebSite metadata identifying the project and its creator.
 
-## AdSense Configuration
+## Product & Creator
 
-Set the following Netlify environment variables:
+AI Tools Directory is a software product published by **Venkata Dhanush Kakarlamudi** under the AllKVD project portfolio.
 
-```text
-PUBLIC_ADSENSE_CLIENT
-PUBLIC_ADSENSE_SLOT_HOME_TOP
-```
-
-Update:
-
-```text
-public/ads.txt
-```
-
-with your AdSense publisher ID.
-
-## Key Engineering Highlights
-
-* Built a searchable AI tool discovery platform using Astro.
-* Designed a category-based navigation system for scalable content organization.
-* Optimized for SEO and static-site performance.
-* Implemented responsive layouts for desktop and mobile users.
-* Integrated Google AdSense monetization support.
-
----
-
-## Built by
-
-**Venkata Dhanush Kakarlamudi** — [Portfolio](https://portfolio.allkvd.dev/)
+- **Product:** https://aitoolsdirectory.allkvd.dev/
+- **Creator:** https://allkvd.dev/
+- **Portfolio:** https://portfolio.allkvd.dev/
+- **GitHub:** https://github.com/kvdhanush06
+- **Resume:** https://drive.google.com/file/d/1NCT6ZCa_HfxCdScqI-1Q2yA6y2c7O-qA/view
