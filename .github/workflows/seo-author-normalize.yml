@@ -1,0 +1,46 @@
+name: SEO author normalize
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    if: "!contains(github.event.head_commit.message, 'SEO author normalize')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Normalize guide authorship
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          old = '"author": { "@type":"Person", "name":"AI Tools Directory" },\n      "publisher": { "@type":"Organization", "name":"AI Tools Directory" }'
+          new = '"author": { "@type":"Person", "@id":"https://allkvd.dev/#person", "name":"Venkata Dhanush Kakarlamudi", "url":"https://allkvd.dev/" },\n      "publisher": { "@type":"Person", "@id":"https://allkvd.dev/#person", "name":"Venkata Dhanush Kakarlamudi", "url":"https://allkvd.dev/" }'
+          changed = 0
+          for p in Path('src/pages/guides').glob('*.astro'):
+              s = p.read_text(encoding='utf-8')
+              if old in s:
+                  p.write_text(s.replace(old, new), encoding='utf-8')
+                  changed += 1
+          print(f'Updated {changed} guide files')
+          PY
+
+      - name: Commit and remove temporary workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm .github/workflows/seo-author-normalize.yml
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo "No changes required"
+          else
+            git commit -m "SEO author normalize: attribute guides to creator"
+            git push
+          fi
