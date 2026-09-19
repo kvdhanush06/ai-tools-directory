@@ -13,7 +13,7 @@ if (!cat) throw new Error('Category not found: ' + slug);
 
 const title = `${cat.name} AI Tools — Directory & Recommendations`;
 const description = `Browse ${cat.name.toLowerCase()} AI tools: pricing, summaries, and practical recommendations.`;
-const canonical = `https://aitoolsdirectory.allkvd.me/category/${cat.slug}`;
+const canonical = `https://aitoolsdirectory.allkvd.dev/category/${cat.slug}`;
 const tools = data.tools.filter(t=>t.category===cat.slug);
 ---
 <BaseLayout title={title} description={description} canonical={canonical}>

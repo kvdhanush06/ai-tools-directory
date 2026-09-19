@@ -3,7 +3,7 @@ import SeoHead from '../components/SeoHead.astro';
 const { title, description, canonical, noindex = false } = Astro.props;
 const siteUrl = 'https://aitoolsdirectory.allkvd.dev';
 const normalizedCanonical = typeof canonical === 'string'
-  ? canonical.replace('aitoolsdirectory.allkvd.me', 'aitoolsdirectory.allkvd.dev')
+  ? canonical.replace('aitoolsdirectory.allkvd.dev', 'aitoolsdirectory.allkvd.dev')
   : canonical;
 ---
 <!doctype html>

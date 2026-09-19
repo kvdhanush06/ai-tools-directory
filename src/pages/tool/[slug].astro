@@ -14,7 +14,7 @@ if (!tool) throw new Error('Tool not found: ' + slug);
 const cat = data.categories.find(c=>c.slug===tool.category);
 const title = `${tool.name} — AI Tool Review & Use Cases`;
 const description = `${tool.name}: ${tool.tagline} Category: ${cat?.name || tool.category}. Pricing: ${tool.pricing}.`;
-const canonical = `https://aitoolsdirectory.allkvd.me/tool/${tool.slug}`;
+const canonical = `https://aitoolsdirectory.allkvd.dev/tool/${tool.slug}`;
 ---
 <BaseLayout title={title} description={description} canonical={canonical}>
   <section class="hero">
