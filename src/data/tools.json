@@ -141,6 +141,15 @@
       "updated": "2025-12-01"
     },
     {
+      "name": "ImagineClip",
+      "slug": "imagineclip",
+      "category": "video",
+      "pricing": "Freemium",
+      "website": "https://imagineclip.com",
+      "tagline": "AI video generator for avatar clips, stylized scenes, and social-ready videos.",
+      "updated": "2026-06-21"
+    },
+    {
       "name": "Claude",
       "slug": "claude",
       "category": "research",
