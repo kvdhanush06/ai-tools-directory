@@ -3,9 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AdSlot from '../components/AdSlot.astro';
 import data from '../data/tools.json';
 
-const title = "AI Tools Directory — Curated tools, guides, and comparisons";
-const description = "Discover AI tools for productivity, developers, design, marketing, video, and research. Fast, SEO-ready directory with practical guides.";
-const canonical = "https://aitoolsdirectory.allkvd.me/";
+const title = "AI Tools Directory — Curated AI Tools, Guides & Comparisons";
+const description = "Discover AI tools for productivity, developers, design, marketing, video, and research. Search categories, compare tools, and explore practical AI guides.";
+const canonical = "https://aitoolsdirectory.allkvd.dev/";
 const topCats = data.categories.slice(0,4);
 const latestTools = data.tools.slice(0,8);
 ---
@@ -17,14 +17,14 @@ const latestTools = data.tools.slice(0,8);
       <input id="q" placeholder="Search tools (e.g., code, SEO, video)..." />
       <button onclick="window.location.href='/search?q=' + encodeURIComponent(document.getElementById('q').value)">Search</button>
     </div>
-    <div class="kicker">Tip: Start with long-tail guides for quicker rankings.</div>
+    <div class="kicker">Browse tools by category or start with a practical guide.</div>
   </section>
 
   <AdSlot slot="HOME_TOP" />
 
-  <section class="grid" aria-label="Top categories">
+  <section class="grid" aria-label="Top AI tool categories">
     {topCats.map((c) => (
-      <a class="card" href={`/category/${c.slug}`} key={c.slug}>
+      <a class="card" href={`/category/${c.slug}`}>
         <h3>{c.name}</h3>
         <p>{c.desc}</p>
         <div class="badges"><span class="badge">Browse tools</span><span class="badge">Guides</span></div>
@@ -33,14 +33,14 @@ const latestTools = data.tools.slice(0,8);
   </section>
 
   <section style="margin-top:22px">
-    <h2 style="margin:0 0 8px">Recently added</h2>
+    <h2 style="margin:0 0 8px">Recently added AI tools</h2>
     <table class="table" role="table">
       <thead>
         <tr><th>Tool</th><th>Category</th><th>Pricing</th><th>What it does</th></tr>
       </thead>
       <tbody>
         {latestTools.map((t) => (
-          <tr key={t.slug}>
+          <tr>
             <td><a href={`/tool/${t.slug}`}>{t.name}</a></td>
             <td><a href={`/category/${t.category}`}>{data.categories.find(c=>c.slug===t.category)?.name}</a></td>
             <td>{t.pricing}</td>
@@ -54,15 +54,15 @@ const latestTools = data.tools.slice(0,8);
   <AdSlot slot="HOME_MID" />
 
   <section style="margin-top:24px">
-    <h2 style="margin:0 0 8px">Start here</h2>
+    <h2 style="margin:0 0 8px">AI tool guides</h2>
     <div class="grid">
       <a class="card" href="/guides/best-ai-tools-for-students">
         <h3>Best AI tools for students</h3>
-        <p>High-intent guide: writing, research, presentations, and study workflows.</p>
+        <p>AI tools for writing, research, presentations, studying, and student workflows.</p>
       </a>
       <a class="card" href="/guides/best-ai-tools-for-developers">
         <h3>Best AI tools for developers</h3>
-        <p>Code assistants, debugging, docs, and productivity boosters.</p>
+        <p>AI coding assistants, debugging, documentation, development workflows, and productivity.</p>
       </a>
     </div>
   </section>
