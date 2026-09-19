@@ -1,7 +1,7 @@
 import data from '../data/tools.json';
 
 export async function GET() {
-  const base = 'https://aitoolsdirectory.allkvd.me';
+  const base = 'https://aitoolsdirectory.allkvd.dev';
   const staticPages = [
     '/', '/ai-tools', '/categories', '/guides', '/about', '/privacy', '/terms', '/contact', '/search'
   ];
@@ -21,13 +21,10 @@ export async function GET() {
     ...guideSlugs.map(s => `/guides/${s}`)
   ];
 
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
-` +
-    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-` +
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     urls.map(u => `  <url><loc>${base}${u}</loc></url>`).join('\n') +
-    `
-</urlset>`;
+    `\n</urlset>`;
 
   return new Response(xml, { headers: { 'Content-Type': 'application/xml' } });
 }
