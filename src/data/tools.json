@@ -319,6 +319,15 @@
       "website": "https://www.veed.io",
       "tagline": "Online video editor with AI tools.",
       "updated": "2025-12-01"
+    },
+    {
+      "name": "AI Fruit Video",
+      "slug": "ai-fruit-video",
+      "category": "video",
+      "pricing": "Freemium",
+      "website": "https://aifruitvideo.com",
+      "tagline": "AI generator for funny talking-fruit video clips from story ideas.",
+      "updated": "2026-09-26"
     }
   ]
 }
