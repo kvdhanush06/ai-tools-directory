@@ -319,6 +319,15 @@
       "website": "https://www.veed.io",
       "tagline": "Online video editor with AI tools.",
       "updated": "2025-12-01"
+    },
+    {
+      "name": "PhotoGenerAI",
+      "slug": "photogenerai",
+      "category": "design",
+      "pricing": "Freemium",
+      "website": "https://photogenerai.com",
+      "tagline": "Free AI photo generator and editor, no sign-up required.",
+      "updated": "2026-09-28"
     }
   ]
 }
