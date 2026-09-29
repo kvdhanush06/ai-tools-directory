@@ -319,6 +319,15 @@
       "website": "https://www.veed.io",
       "tagline": "Online video editor with AI tools.",
       "updated": "2025-12-01"
+    },
+    {
+      "name": "AI Room Makeover",
+      "slug": "ai-room-makeover",
+      "category": "design",
+      "pricing": "Freemium",
+      "website": "https://airoommakeover.com",
+      "tagline": "Preview a room change in your own photo before you make it.",
+      "updated": "2026-09-29"
     }
   ]
 }
